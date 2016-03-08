@@ -1,0 +1,67 @@
+<modification>
+	<id>Ares Hide Returns</id>
+    <version>2.0.1</version>
+    <vqmver>2.4.1</vqmver>
+    <author>pnpDev - Muhamamd Arslan Afzal</author>
+		<file name="catalog/view/theme/*/template/common/footer.tpl">
+		<operation>
+			<search position="replace"><![CDATA[<li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>]]></search>
+			<add><![CDATA[]]></add>
+		</operation>
+		</file>
+		<file name="catalog/view/theme/*/template/module/account.tpl">
+		<operation>
+			<search position="replace"><![CDATA[<li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>]]></search>
+			<add><![CDATA[]]></add>
+		</operation>
+		</file>
+		<file name="catalog/controller/account/return.php">
+		<operation>
+			<search position="after"><![CDATA[public function index() {]]></search>
+			<add><![CDATA[
+			$this->redirect($this->url->link('account/return/404', '', 'SSL'));
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[public function info() {]]></search>
+			<add><![CDATA[
+			$this->redirect($this->url->link('account/return/404', '', 'SSL'));
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[public function insert() {]]></search>
+			<add><![CDATA[
+			$this->redirect($this->url->link('account/return/404', '', 'SSL'));
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[public function success() {]]></search>
+			<add><![CDATA[
+			$this->redirect($this->url->link('account/return/404', '', 'SSL'));
+			]]></add>
+		</operation>
+		</file>
+                <file name="catalog/view/theme/*/template/account/account.tpl">
+		<operation>
+			<search position="replace"><![CDATA[<li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>]]></search>
+			<add><![CDATA[
+			
+			]]></add>
+		</operation>
+                </file>
+                
+                <file name="catalog/view/theme/*/template/account/order_info.tpl">
+                <operation>
+                    <search position="replace"><![CDATA[
+                        <td class="right"><a href="<?php echo $product['return']; ?>"><img src="catalog/view/theme/default/image/return.png" alt="<?php echo $button_return; ?>" title="<?php echo $button_return; ?>" /></a></td>
+                    ]]></search>
+                    <add><![CDATA[
+                        <td class="right"></td>
+                    ]]></add>
+                </operation>
+                </file>
+</modification>
+
+<!--
+http://eresdev.com
+-->

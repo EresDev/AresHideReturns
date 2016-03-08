@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+	<name>Ares Hide Returns</name>
+    <version>3.0</version>
+    <author>pnpDev - Muhammad Arslan Afzal</author>
+	<code>000032010</code>
+    <link>http://www.arslanafzal.com</link>
+		<file path="catalog/view/theme/*/template/common/footer.tpl">
+		<operation>
+			<search><![CDATA[<li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>]]></search>
+			<add position="replace"><![CDATA[]]></add>
+		</operation>
+		</file>
+		<file path="catalog/view/theme/*/template/module/account.tpl">
+		<operation>
+			<search><![CDATA[<a href="<?php echo $address; ?>" class="list-group-item"><?php echo $text_address; ?></a> <a href="<?php echo $wishlist; ?>" class="list-group-item"><?php echo $text_wishlist; ?></a> <a href="<?php echo $order; ?>" class="list-group-item"><?php echo $text_order; ?></a> <a href="<?php echo $download; ?>" class="list-group-item"><?php echo $text_download; ?></a> <a href="<?php echo $reward; ?>" class="list-group-item"><?php echo $text_reward; ?></a> <a href="<?php echo $return; ?>" class="list-group-item"><?php echo $text_return; ?></a> <a href="<?php echo $transaction; ?>" class="list-group-item"><?php echo $text_transaction; ?></a> <a href="<?php echo $newsletter; ?>" class="list-group-item"><?php echo $text_newsletter; ?></a><a href="<?php echo $recurring; ?>" class="list-group-item"><?php echo $text_recurring; ?></a>]]></search>
+			<add position="replace"><![CDATA[
+			<a href="<?php echo $address; ?>" class="list-group-item"><?php echo $text_address; ?></a> <a href="<?php echo $wishlist; ?>" class="list-group-item"><?php echo $text_wishlist; ?></a> <a href="<?php echo $order; ?>" class="list-group-item"><?php echo $text_order; ?></a> <a href="<?php echo $download; ?>" class="list-group-item"><?php echo $text_download; ?></a> <a href="<?php echo $reward; ?>" class="list-group-item"><?php echo $text_reward; ?></a> <a href="<?php echo $transaction; ?>" class="list-group-item"><?php echo $text_transaction; ?></a> <a href="<?php echo $newsletter; ?>" class="list-group-item"><?php echo $text_newsletter; ?></a><a href="<?php echo $recurring; ?>" class="list-group-item"><?php echo $text_recurring; ?></a>
+			]]></add>
+		</operation>
+		</file>
+		<file path="catalog/controller/account/return.php">
+		<operation>
+			<search><![CDATA[public function index() {]]></search>
+			<add position="after"><![CDATA[
+			$this->response->redirect($this->url->link('account/return/404', '', 'SSL'));
+			]]></add>
+		</operation>
+		<operation>
+			<search><![CDATA[public function info() {]]></search>
+			<add position="after"><![CDATA[
+			$this->response->redirect($this->url->link('account/return/404', '', 'SSL'));
+			]]></add>
+		</operation>
+		<operation>
+			<search><![CDATA[public function add() {]]></search>
+			<add position="after"><![CDATA[
+			$this->response->redirect($this->url->link('account/return/404', '', 'SSL'));
+			]]></add>
+		</operation>
+		<operation>
+			<search><![CDATA[public function success() {]]></search>
+			<add position="after"><![CDATA[
+			$this->response->redirect($this->url->link('account/return/404', '', 'SSL'));
+			]]></add>
+		</operation>
+		</file>
+                <file path="catalog/view/theme/*/template/account/account.tpl">
+		<operation>
+			<search><![CDATA[<li><a href="<?php echo $return; ?>"><?php echo $text_return; ?></a></li>]]></search>
+			<add position="replace"><![CDATA[
+			
+			]]></add>
+		</operation>
+                </file>
+                
+                <file path="catalog/view/theme/*/template/account/order_info.tpl">
+                <operation>
+                    <search><![CDATA[<a href="<?php echo $product['return']; ?>" data-toggle="tooltip" title="<?php echo $button_return; ?>" class="btn btn-danger"><i class="fa fa-reply"></i></a></td>]]></search>
+                    <add position="replace"><![CDATA[]]></add>
+                </operation>
+                </file>
+</modification>
+
+<!--
+http://eresdev.com
+-->
